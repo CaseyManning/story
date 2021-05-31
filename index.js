@@ -97,7 +97,10 @@ function writeText(element, text, finished) {
             element.innerHTML += text[0];
         }
         text = text.substring(1);
-
+        if(finishedWriting) {
+            console.log("adding the rest")
+            element.innerHTML += text;
+        }
         if(text.length == 0 || finishedWriting) {
             finishedWriting = true;
             finished();
