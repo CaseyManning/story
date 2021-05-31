@@ -1,0 +1,9 @@
+{
+    "scopeName": "source.story",
+    "patterns": [
+        {
+            "match": "story",
+            "name": "mylang.symbol.story"
+        }
+    ]
+}

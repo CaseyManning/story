@@ -6,6 +6,15 @@
     src: url(paduak.woff2) format('woff2');
 }
 
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    /* font-weight: 500; */
+    font-display: swap;
+    src: url(Quicksand.woff) format('woff2');
+}
+
+
 .picture {
     width: 150px;
     height: 150px;
@@ -39,7 +48,6 @@ img {
 
 .top {
     display: flex;
-    margin-left: -85px;
     height: 47.5%;
     align-items: flex-end;
     /* width: 860px;
@@ -47,8 +55,8 @@ img {
 }
 .bottom {
     display: flex;
-    height: 47.5;
-    margin-left: 85px;
+    height: 47.5%;
+    margin-left: 165px;
     align-items: flex-start;
     /* width: 860px;
     justify-content: flex-end; */
@@ -58,6 +66,14 @@ img {
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
+}
+
+.optionarea {
+    width: 550px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .box {
@@ -70,6 +86,18 @@ img {
 
 .hidden {
     display: none;
+}
+.clickable {
+    cursor: pointer;
+}
+.clickable:hover {
+    border: 2px solid #333;
+}
+
+.invis {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .maintext {
@@ -84,13 +112,14 @@ img {
 
 p {
     margin: 0px;
-    font-family: 'Padauk', sans-serif;
-    font-size: 15pt;
+    font-family: 'Quicksand';
+    font-size: 14pt;
     user-select: none;
 }
 .dialogoption {
-    width: 100%;
+    width: fit-content;
     height: min-content;
+    /* white-space: nowrap; */
     padding: 15px 20px;
     cursor: pointer;
     box-sizing: border-box;
@@ -100,6 +129,13 @@ p {
 }
 .dialogoption:hover {
     border: 2px solid #333;
+}
+.dialogoption p {
+    text-align: end;
+}
+
+#playerinfo {
+    transition: 0.5s;
 }
 
 body {

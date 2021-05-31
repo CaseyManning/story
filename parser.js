@@ -17,13 +17,17 @@ function loadStory(filename, finished) {
                 
                 currentMoment.addOption({"text" : line[0], "destination" : line[1]})
             } else if(line.startsWith("---")) {
+                currentMoment.trimText();
                 moments[currentMoment.name] = currentMoment;
                 currentMoment = null;
+            } else if(line.startsWith(">|")) {
+                currentMoment.setNext(line.substr(3));
             } else {
                 currentMoment.addText(line)
             }
         }
         if(currentMoment) {
+            currentMoment.trimText();
             moments[currentMoment.name] = currentMoment;
         }
         finished();

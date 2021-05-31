@@ -1,0 +1,17 @@
+{
+    "contributes": {
+        "grammars": [
+            {
+                "language": "story",
+                "scopeName": "source.story",
+                "path": "grammar.json"
+            }
+        ],
+        "languages": [
+            {
+                "id": "story",
+                "extensions": ["story"]
+            }
+        ]
+    }
+}

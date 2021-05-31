@@ -4,6 +4,7 @@ class Moment {
         this.person = person;
         this.text = "";
         this.options = []
+        this.next = null;
     }
     addOption(val) {
         this.options.push(val)
@@ -11,13 +12,30 @@ class Moment {
     addText(val) {
         this.text += val + '\n';
     }
+    setNext(val) {
+        this.next = val;
+    }
+    trimText() {
+        if(this.text.endsWith('\n')) {
+            this.text = this.text.substring(0, this.text.length-1)
+        }
+    }
 
     showMoment() {
-        console.log(this)
+        console.log("showing moment " + this.name);
+        currentMoment = this;
+
         if(window["On"+this.name]) {
             window["On"+this.name]();
         }
-        clearOptions()
+
+        clearOptions();
+
+        if(this.options.length == 0) {
+            document.getElementById("playerinfo").classList.add("invis");
+        }
+        document.getElementById("textbox").onclick = finishWriting;
+            document.getElementById("textbox").classList.add("clickable");
 
         if(this.person != "inherit") {
             document.getElementById("personname").innerHTML = people[this.person].name;
@@ -28,9 +46,28 @@ class Moment {
             for(var i = 0; i < this.options.length; i++) {
                 showDialogOption(this.options[i], i)
             }
+            if(this.options.length > 0) {
+                document.getElementById("playerinfo").classList.remove("invis");
+                document.getElementById("textbox").classList.remove("clickable");
+                document.getElementById("textbox").onclick = "";
+            } else {
+                document.getElementById("textbox").onclick = textboxclicked;
+            }
         });
         
     }
+}
+
+function finishWriting() {
+    finishedWriting = true;
+}
+
+var currentMoment;
+
+var finishedWriting = false;
+
+function textboxclicked() {
+    moments[currentMoment.next].showMoment();
 }
 
 var people = {};
@@ -48,6 +85,7 @@ new Person("Mr. Alignment", "dots2.png")
 function writeText(element, text, finished) {
     element = element.firstElementChild;
     element.innerHTML = "";
+    finishedWriting = false;
     var writechar = () => {
         var delay = 15;
         if(text[0] === '\n') {
@@ -60,7 +98,8 @@ function writeText(element, text, finished) {
         }
         text = text.substring(1);
 
-        if(text.length == 0) {
+        if(text.length == 0 || finishedWriting) {
+            finishedWriting = true;
             finished();
         } else {
             setTimeout(() => {
@@ -72,7 +111,6 @@ function writeText(element, text, finished) {
 }
 
 function clearOptions() {
-    var base = document.getElementById("baseoption");
     for (let i = document.getElementsByClassName("dialogoption").length-1; i >= 0; i--) {
         const element = document.getElementsByClassName("dialogoption")[i];
         if(element.id != "baseoption") {
@@ -80,6 +118,8 @@ function clearOptions() {
         } 
     }
 }
+
+var selectedOption;
 
 function showDialogOption(option, i) {
     var base = document.getElementById("baseoption");
@@ -95,6 +135,11 @@ function showDialogOption(option, i) {
 
     newoption.onclick = function(e) {
         moments[option.destination].showMoment();
+        if(e.target.classList.contains("dialogoption")) {
+            selectedOption = e.target;
+        } else {
+            selectedOption = e.target.parentElement;
+        }
     }
 }
 
@@ -103,7 +148,7 @@ var moments = {};
 var startScene = "start"
 
 function startGame() {
-    loadStory("story.txt", () => {
+    loadStory("main.story   ", () => {
         moments[startScene].showMoment();
     });
 }
