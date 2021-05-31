@@ -19,12 +19,14 @@ class Moment {
         }
         clearOptions()
 
-        document.getElementById("personname").innerHTML = people[this.person].name;
-        document.getElementById("personimg").src = people[this.person].image
+        if(this.person != "inherit") {
+            document.getElementById("personname").innerHTML = people[this.person].name;
+            document.getElementById("personimg").src = people[this.person].image
+        }
 
         writeText(document.getElementById("textbox"), this.text, () => {
             for(var i = 0; i < this.options.length; i++) {
-                showDialogOption(this.options[i])
+                showDialogOption(this.options[i], i)
             }
         });
         
@@ -40,7 +42,7 @@ class Person {
         people[name] = this;
     }
 }
-new Person("Mr. Dialog", "dots1.png")
+new Person("Mr. Dialogue", "dots1.png")
 new Person("Mr. Alignment", "dots2.png")
 
 function writeText(element, text, finished) {
@@ -79,14 +81,17 @@ function clearOptions() {
     }
 }
 
-function showDialogOption(option) {
+function showDialogOption(option, i) {
     var base = document.getElementById("baseoption");
     base.classList.remove("hidden")
     var newoption = base.cloneNode(true)
     newoption.removeAttribute('id');
     newoption.firstElementChild.innerHTML = option.text;
+    newoption.setAttribute('style', 'animation-delay: ' + (i/4) + "s;");
+
     base.parentElement.appendChild(newoption)
     base.classList.add("hidden");
+
 
     newoption.onclick = function(e) {
         moments[option.destination].showMoment();

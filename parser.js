@@ -7,9 +7,10 @@ function loadStory(filename, finished) {
             var line = data.split("\n")[i]
             if(!currentMoment) { //new moment, write name and person
                 line = line.split(" | ")
-                currentMoment = new Moment(line[0], line[1])
-                if(!line[0] || !line[1]) {
-                    throw 'Malformed input in ' + filename + ', line ' + i;
+                if(line[1]) {
+                    currentMoment = new Moment(line[0], line[1])
+                } else {
+                    currentMoment = new Moment(line[0], "inherit")
                 }
             } else if(line.startsWith(" > ")) { //dialog option
                 line = line.substring(3).split(" | ");
