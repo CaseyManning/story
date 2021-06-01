@@ -103,7 +103,7 @@ img {
 .maintext {
     width: 480px;
     height: min-content;
-    transition: 0.2s;
+    transition: 1s;
     padding: 20px;
 }
 .maintext p {
@@ -135,7 +135,11 @@ p {
 }
 
 #playerinfo {
-    transition: 0.5s;
+    transition: 1s;
+}
+
+.thought {
+    border: 2px solid rgb(173, 200, 231);
 }
 
 body {

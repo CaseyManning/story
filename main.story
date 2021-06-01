@@ -13,21 +13,41 @@ you really couldn't be a sailor without one.
 >| startp3
 ---
 startp3
-that poor lad freddy, he didn't have a sailing hat. lasted about a week he did.
-
-never learned his lesson that one.
->| startp4
----
-startp4
 not all its cracked up to be, you know, sailing. we used to go weeks eating nothing but fish liver.
 
 nowadays the fish dont even have livers, thats how many we ate. saltier than cow vomit i tell you.
- > saltier than what? | startp5
+>| selftest
 ---
-startp5
-some people, no manners at all.
+selftest | self
+what an interesting story
+>| selftest2
+---
+selftest2 | self
+i wonder why he's called mr. dialogue.
 
-absolutely none.
+must be a sailor thing.
+>| selftest3
+---
+selftest3 | self
+are you allowed to wear a pointy hat even if you aren't a sailor?
+
+i wouldn't want to end up like freddy.
+>| backtest
+---
+backtest | Mr. Dialogue
+hey you!
+
+you havent stopped listening have you?
+ > yes mr. dialogue | yes
+ > no mr. dialogue | no
+---
+no
+good. very good.
+---
+yes
+well you just missed the good part.
+
+tragic.
 ---
 align
 Well for that we'll need to consult my alignment expert, Mr. Alignment

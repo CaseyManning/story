@@ -35,12 +35,21 @@ class Moment {
             document.getElementById("playerinfo").classList.add("invis");
         }
         document.getElementById("textbox").onclick = finishWriting;
-            document.getElementById("textbox").classList.add("clickable");
+        document.getElementById("textbox").classList.add("clickable");
 
-        if(this.person != "inherit") {
-            document.getElementById("personname").innerHTML = people[this.person].name;
-            document.getElementById("personimg").src = people[this.person].image
+        if(this.person == "self") {
+            document.getElementById("personinfo").classList.add("invis");
+            // document.getElementById("playerinfo").classList.remove("invis");
+            document.getElementById('textbox').classList.add('thought')
+        } else {
+            document.getElementById('textbox').classList.remove('thought')
         }
+        if(this.person != "inherit" && people[this.person]) {
+            document.getElementById("personname").innerHTML = people[this.person].name;
+            document.getElementById("personimg").src = people[this.person].image;
+            document.getElementById("personinfo").classList.remove("invis");
+        }
+        
 
         writeText(document.getElementById("textbox"), this.text, () => {
             for(var i = 0; i < this.options.length; i++) {
@@ -83,34 +92,44 @@ new Person("Mr. Dialogue", "dots1.png")
 new Person("Mr. Alignment", "dots2.png")
 
 function writeText(element, text, finished) {
+
     element = element.firstElementChild;
-    element.innerHTML = "";
-    finishedWriting = false;
-    var writechar = () => {
-        var delay = 15;
-        if(text[0] === '\n') {
-            element.innerHTML += "<br />";
-            if(text[1] === '\n') {
-                delay = 200;
+    element.innerHTML = text.replace('\n', '<br /><br />');
+    setTimeout(() => {
+        element.parentElement.setAttribute('style', 'height: ' + element.getBoundingClientRect().height + "px");
+        element.innerHTML = "";
+        finishedWriting = false;
+        if(element.classList.contains("thought")) {
+            element.style.animation = "popin 0.5s";
+        } else {
+            element.style.animation = "";
+        }
+        var writechar = () => {
+            var delay = 15;
+            if(text[0] === '\n') {
+                element.innerHTML += "<br />";
+                if(text[1] === '\n') {
+                    delay = 200;
+                }
+            } else {
+                element.innerHTML += text[0];
             }
-        } else {
-            element.innerHTML += text[0];
+            text = text.substring(1);
+            if(finishedWriting) {
+                console.log("adding the rest")
+                element.innerHTML += text.replace('\n', '<br /><br />');;
+            }
+            if(text.length == 0 || finishedWriting) {
+                finishedWriting = true;
+                finished();
+            } else {
+                setTimeout(() => {
+                    writechar()
+                }, delay);
+            }
         }
-        text = text.substring(1);
-        if(finishedWriting) {
-            console.log("adding the rest")
-            element.innerHTML += text;
-        }
-        if(text.length == 0 || finishedWriting) {
-            finishedWriting = true;
-            finished();
-        } else {
-            setTimeout(() => {
-                writechar()
-            }, delay);
-        }
-    }
-    writechar();
+        writechar();
+    }, 0);
 }
 
 function clearOptions() {
