@@ -104,7 +104,9 @@ img {
     width: 480px;
     height: min-content;
     transition: 1s;
+    overflow: visible;
     padding: 20px;
+    position: relative;
 }
 .maintext p {
     word-wrap: normal;
@@ -164,4 +166,35 @@ body {
         transform: scale(1);
         opacity: 1;
     }
+}
+
+.arrow {
+    position: absolute;
+    border-left: inherit;
+    border-bottom: inherit;
+    border-radius: 2px;
+    bottom: -2; left: -8;
+    width: 22px;
+    transform: skewX(-30deg);
+    background-color: inherit;
+    height: 19px;
+}
+
+.bubble {
+    background-color: inherit;
+    border: inherit;
+    border-radius: 50%;
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    bottom: -50px;
+    right: -20px;
+}
+
+.bubble2 {
+    width: 15px; height: 15px; right: 30px; bottom: -30px;
+}
+
+.bubble3 {
+    width: 15px; height: 15px; right: -30px; bottom: -5px;
 }

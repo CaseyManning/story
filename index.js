@@ -41,8 +41,17 @@ class Moment {
             document.getElementById("personinfo").classList.add("invis");
             // document.getElementById("playerinfo").classList.remove("invis");
             document.getElementById('textbox').classList.add('thought')
+            document.getElementById('speechmark').classList.add('hidden');
+            for (let i = 0; i < document.getElementsByClassName('bubble').length; i++) {
+                document.getElementsByClassName('bubble')[i].classList.remove("hidden");
+                document.getElementsByClassName('bubble')[i].setAttribute('style', 'animation: popin 0.3s forwards; animation-delay: ' + i/4 + "s; transform: scale(0);")
+            }
         } else {
             document.getElementById('textbox').classList.remove('thought')
+            document.getElementById('speechmark').classList.remove('hidden');
+            for (let i = 0; i < document.getElementsByClassName('bubble').length; i++) {
+                document.getElementsByClassName('bubble')[i].classList.add("hidden");
+            }
         }
         if(this.person != "inherit" && people[this.person]) {
             document.getElementById("personname").innerHTML = people[this.person].name;
