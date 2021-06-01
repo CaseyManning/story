@@ -117,7 +117,7 @@ function writeText(element, text, finished) {
             text = text.substring(1);
             if(finishedWriting) {
                 console.log("adding the rest")
-                element.innerHTML += text.replace('\n', '<br /><br />');;
+                element.innerHTML += text.replace('\n\n', '<br /><br />').replace('\n', '<br/>');
             }
             if(text.length == 0 || finishedWriting) {
                 finishedWriting = true;
