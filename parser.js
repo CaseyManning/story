@@ -22,6 +22,10 @@ function loadStory(filename, finished) {
                 currentMoment = null;
             } else if(line.startsWith(">|")) {
                 currentMoment.setNext(line.substr(3));
+            } else if(line.startsWith("+")) {
+                currentMoment.addStatus(line.substr(1));
+            } else if(line.startsWith("-")) {
+                currentMoment.addRemoveStatus(line.substr(1));
             } else {
                 currentMoment.addText(line)
             }
@@ -33,3 +37,31 @@ function loadStory(filename, finished) {
         finished();
     });
 }
+
+function loadStatuses(filename, finished) {
+    fetch(filename)
+    .then(response => response.text())
+    .then(data => {
+        var currentStatus;
+        for(var i = 0; i < data.split("\n").length; i++) {
+            var line = data.split("\n")[i]
+            if(!currentStatus && line.startsWith("---")) {
+                continue;
+            } else if(!currentStatus) {
+                currentStatus = new Status(line.trim())
+
+            } else if(line.startsWith("---")) {
+                currentStatus.trimText();
+                statuses[currentStatus.name] = currentStatus;
+                currentStatus = null;
+            } else {
+                currentStatus.addText(line)
+            }
+        }
+        if(currentStatus) {
+            currentStatus.trimText();
+            statuses[currentStatus.name.trim()] = currentStatus;
+        }
+        finished();
+    })
+};

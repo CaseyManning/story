@@ -12,8 +12,18 @@
     /* font-weight: 500; */
     font-display: swap;
     src: url(Quicksand.woff) format('woff2');
-}
+}  
 
+/* latin */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/quicksand/v22/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkM0o58a-xDwxUD2GFw.woff) format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  
 
 .picture {
     width: 150px;
@@ -23,7 +33,7 @@
     justify-content: center;
 }
 #personname {
-    width: 100%;
+    width: 170px;
     text-align: center;
     margin-top: 10px;
 }
@@ -32,8 +42,6 @@ img {
 }
 
 .column {
-    position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
     margin: auto;
     width: min-content;
     height: 100%;
@@ -55,7 +63,7 @@ img {
 }
 .bottom {
     display: flex;
-    height: 47.5%;
+    height: 30%;
     margin-left: 165px;
     align-items: flex-start;
     /* width: 860px;
@@ -116,6 +124,7 @@ p {
     margin: 0px;
     font-family: 'Quicksand';
     font-size: 14pt;
+    white-space: pre-line !important;
     user-select: none;
 }
 .dialogoption {
@@ -132,24 +141,23 @@ p {
 .dialogoption:hover {
     border: 2px solid #333;
 }
-.dialogoption p {
-    text-align: end;
-}
 
 #playerinfo {
     transition: 1s;
 }
 
 .thought {
-    border: 2px solid rgb(173, 200, 231);
+    border: 2px solid rgb(142, 182, 227);
 }
 
 body {
-    background-color: #fefefe;
+    background-color: #d4e4e6;
     margin: 0;
-    /* display: flex;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
 }
 
 .picture img {
@@ -179,6 +187,17 @@ body {
     background-color: inherit;
     height: 19px;
 }
+.optionarrow {
+    position: absolute;
+    border-right: inherit;
+    border-bottom: inherit;
+    border-radius: 2px;
+    bottom: -2; right: -8;
+    width: 22px;
+    transform: skewX(30deg);
+    background-color: inherit;
+    height: 19px;
+}
 
 .bubble {
     background-color: inherit;
@@ -189,6 +208,7 @@ body {
     height: 35px;
     bottom: -50px;
     right: -20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px;
 }
 
 .bubble2 {
@@ -197,4 +217,112 @@ body {
 
 .bubble3 {
     width: 15px; height: 15px; right: -30px; bottom: -5px;
+}
+
+.status {
+    width: 250px;
+    padding: 15px;
+    margin-bottom: auto;
+    animation: statusin 2s ease forwards, fadeout 1.5s ease 8s forwards;
+}
+
+.status p:nth-child(1) {
+    font-weight: 500;
+    width: 100%;
+    border-bottom: inherit;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.removal p {
+    border-bottom: none !important;
+    font-weight: 400 !important;
+    height: 100%;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+#statusrow {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
+
+@keyframes statusin {
+    0% {
+        opacity: 0;
+        transform: scale(0) translate(0px, -100px);
+    } 100% {
+        opacity: 1;
+        transform: scale(1) translate(0px, 0px);
+    }
+}
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    } 100% {
+        opacity: 0;
+    }
+}
+
+.removal {
+    border-color: rgb(255, 48, 0) !important;
+}
+
+.valuebar {
+    width: 400px;
+    height: 20px;
+    border-radius: 20px;
+    margin: 30px;
+    background-color: #0004;
+    position: relative;
+}
+.valuebar::before {
+    background-color: #222;
+    width: 80%;
+    height: 100%;
+    content: ".";
+    color: #0000;
+    display: block;
+    border-radius: inherit;
+}
+
+.valuearea {
+    position: absolute;
+    left: 0px; bottom: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidecolumn {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 300px;
+}
+
+.barlabel {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 14px 0px;
+    top: 0; bottom: 0; left: -50px;
+    border-radius: 30px;
+    margin: auto;
+    border: 2px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.barlabel img {
+    height: 55%;
+}
+.unavailable {
+    background-color: #e1e1e1 !important;
+    z-index: -1;
 }
