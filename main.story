@@ -208,7 +208,7 @@ and since it is indeed lunchtime, the back was just full of lunch rolls
 intrinsic
 sure, but don’t you think you’ll experience the flavors of the bread roll differently when you’re approaching it with a lunch-like mindset?
  > no, not really | nodinner
- > you could be right. one time-dependent mealtime roll it is then!
+ > you could be right. one time-dependent mealtime roll it is then
 ---
 nodinner
 alright fine I’ll put you down for the italian sandwich roll instead then.
@@ -295,7 +295,7 @@ how would you describe this italian feeling, then
 uptothem
 you're letting the italians tell you which sandwich rolls you do and don't want?
 
-ridiculous | helpyouout
+ > ridiculous | helpyouout
 ---
 helpyouout
 how about I help you out and put you down for the italian sandwich roll.
