@@ -45,7 +45,12 @@
                 <p>status title</p>
             </div>
         </div>
+        <div class="progress" style="display: none;">
+            <div class="progress-value" id="sanitybar"></div>
+        </div>
+        
     </div>
+    <!-- <div class="sidecolumn"></div> -->
     <!-- <div class="valuearea">
         <div class="valuebar">
             <div class="barlabel">
@@ -55,6 +60,7 @@
     </div> -->
 
     <script>
+        updateSlider(hunger.val);
         startGame();
     </script>
 </body>

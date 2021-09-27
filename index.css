@@ -24,7 +24,9 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
   
-
+#personinfo {
+    display: none;
+}
 .picture {
     width: 150px;
     height: 150px;
@@ -49,6 +51,8 @@ html {
     margin: auto;
     width: min-content;
     height: 100%;
+    display: flex;
+    flex-direction: column;
     /* height: 100%;
     display: flex; */
 }
@@ -61,14 +65,16 @@ html {
 .top {
     display: flex;
     height: 47.5%;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
     /* width: 860px;
     justify-content: flex-start; */
 }
 .bottom {
     display: flex;
-    height: 30%;
-    margin-left: 165px;
+    height: 40%;
+    /* margin-left: 165px; */
     align-items: flex-start;
     /* width: 860px;
     justify-content: flex-end; */
@@ -155,7 +161,7 @@ p {
 }
 
 body {
-    background-color: #d4e4e6;
+    /* background-color: #d4e4e6; */
     margin: 0;
     overflow: hidden;
     height: 100%;
@@ -329,4 +335,35 @@ body {
 .unavailable {
     background-color: #e1e1e1 !important;
     z-index: -1;
+}
+
+  
+.progress {
+    background: rgba(0,0,0,0.1);
+    justify-content: flex-start;
+    border-radius: 100px;
+    align-items: center;
+    position: relative;
+    /* padding: 3px 6px; */
+    display: flex;
+    height: 30px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+  
+.progress-value {
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 100px;
+    background: #222;
+    height: 100%;
+    width: 80%;
+    transition: width 1s, background-color 1s;
+}
+.highlightg {
+    font-weight: 600;
+    color: green;
+}
+.highlightr {
+    font-weight: 600;
+    color: red;
 }

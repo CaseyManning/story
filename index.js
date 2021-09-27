@@ -30,7 +30,7 @@ function eraseCookie(name) {
 
 function startGame() {
     if(getCookie("played")) {
-        startScene = "greeter1"
+        // startScene = "greeter1"
     }
     loadStatuses("main.statuses", () => {
         loadStory("main.story", () => {
@@ -64,7 +64,18 @@ class Status {
         var newstatus = base.cloneNode(true)
         newstatus.removeAttribute('id');
         newstatus.firstElementChild.innerHTML = this.name;
-        newstatus.lastElementChild.innerHTML = this.text;
+
+        var body = this.text;
+        
+        if(body.includes("[+1 Sanity]")) {
+            body = body.replace("[+1 Sanity]", "<span class='highlightg'>[+1 Sanity]</span>")
+            sanity.val += 1;
+        }
+        if(body.includes("[-1 Sanity]")) {
+            body = body.replace("[-1 Sanity]", "<span class='highlightr'>[-1 Sanity]</span>")
+            sanity.val -= 1;
+        }
+        newstatus.lastElementChild.innerHTML = body;
 
         base.parentElement.appendChild(newstatus)
         base.classList.add("hidden");
@@ -97,7 +108,9 @@ class Moment {
         this.options = []
         this.next = null;
         this.statuses = [];
+        this.parts = [];
         this.statusRemoves = [];
+        this.variableSets = [];
     }
     addOption(val) {
         this.options.push(val)
@@ -110,6 +123,12 @@ class Moment {
     }
     addStatus(val) {
         this.statuses.push(val);
+    }
+    addPart(val) {
+        this.parts.push(val);
+    }
+    setVariable(val) {
+        this.variableSets.push(val);
     }
     addRemoveStatus(val) {
         this.statusRemoves.push(val);
@@ -124,6 +143,8 @@ class Moment {
         console.log("showing moment " + this.name);
         currentMoment = this;
 
+        hunger.val -= 1;
+
         if(window["On"+this.name]) {
             window["On"+this.name]();
         }
@@ -134,6 +155,11 @@ class Moment {
         for(var i = 0; i < this.statusRemoves.length; i++) {
             if(activeStatuses.includes(this.statusRemoves[i]))
             statuses[this.statusRemoves[i]].remove();
+        }
+
+        for(var i = 0; i < this.variableSets.length; i++) {
+            window[this.variableSets[i].name] = this.variableSets[i].value;
+            console.log("setting variable " + this.variableSets[i].name + " to " + this.variableSets[i].value);
         }
 
         clearOptions();
@@ -183,6 +209,53 @@ class Moment {
     }
 }
 
+var maxSanity = 10;
+
+sanity = {
+    aInternal: 8,
+    aListener: function(val) {},
+    set val(val) {
+      this.aInternal = val;
+      this.aListener(val);
+    },
+    get val() {
+      return this.aInternal;
+    },
+    registerListener: function(listener) {
+      this.aListener = listener;
+    }
+}
+
+var maxHunger = 50;
+
+hunger = {
+    aInternal: maxHunger,
+    aListener: function(val) {},
+    set val(val) {
+      this.aInternal = val;
+      this.aListener(val);
+    },
+    get val() {
+      return this.aInternal;
+    },
+    registerListener: function(listener) {
+      this.aListener = listener;
+    }
+}
+hunger.registerListener(function(val) {
+    updateSlider(val);
+});
+
+function updateSlider(val) {
+    var bar = document.getElementById("sanitybar");
+    bar.style.width = (val/maxHunger * 100) + "%";
+    if(val == 1) {
+        bar.style.backgroundColor = "#d43030";
+    } else {
+        bar.style.backgroundColor = "";
+    }
+}
+
 function finishWriting() {
     finishedWriting = true;
 }
@@ -215,7 +288,7 @@ function writeText(element, text, finished) {
     console.log(currentMoment.text)
     // var newtext
     element.innerHTML = text;
-    setTimeout(() => {
+    // setTimeout(() => {
         element.parentElement.setAttribute('style', 'height: ' + element.getBoundingClientRect().height + "px");
         element.innerHTML = "";
         finishedWriting = false;
@@ -225,10 +298,10 @@ function writeText(element, text, finished) {
             element.style.animation = "";
         }
         var writechar = () => {
-            var delay = 20;
+            var delay = 12;
             if(text[0] === '\n') {
                 if(text[1] === '\n') {
-                    delay = 350;
+                    delay = 550;
                 }
             }
             element.innerHTML += text[0];
@@ -248,7 +321,7 @@ function writeText(element, text, finished) {
             }
         }
         writechar();
-    }, 0);
+    // }, 0);
 }
 
 function clearOptions() {
@@ -287,4 +360,15 @@ function showDialogOption(option, i) {
             selectedOption = e.target.parentElement;
         }
     }
+}
+
+var breadNames = {
+    "fluffyroll" : "a fluffy roll",
+    "italiansandwich" : "an italian sandwich roll",
+    "crackerroll" : "an animal cracker roll",
+    "dinnerroll" : "a dinner roll"
+}
+
+function Onbreadreroll() {
+    currentMoment.text = currentMoment.text.replace("[bread]", breadNames[breadtype]);
 }

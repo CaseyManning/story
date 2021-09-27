@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href="dream.css">
+    <script src="parser.js"></script>
+    <script src="dream.js"></script>
+</head>
+<body>
+    <div class="column">
+        <div class="top">
+            <div id="personinfo" class="invis" style="margin-bottom: -25px; transition: 1s;">
+                <div class="picture box">
+                    <img id="personimg" src="dots1.png">
+                </div>
+                <p id="personname">welll</p>
+            </div>
+            <div id="textbox" class="maintext box">
+                <p>An Error Occured</p>
+                <div id="speechmark" class="arrow"></div>
+                <div class="bubble hidden"></div>
+                <div class="bubble bubble2 hidden"></div>
+                <div class="bubble bubble3 hidden"></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="optionarea">
+                <div id="baseoption" class="dialogoption box hidden">
+                    <p>Dialog Option 1</p>
+                    <div class="optionarrow"></div>
+                </div>
+            </div>
+            <!-- <div id="playerinfo" class="invis">
+                <div class="picture box">
+                    <img src="dots2.png">
+                </div>
+                <p id="personname">it u</p>
+            </div> -->
+        </div>
+        <div id="statusrow">
+            <div class="box status hidden" id="basestatus">
+                <p>status title</p>
+                <p>status contents</p>
+            </div>
+            <div class="box status removal hidden" id="baseremovestatus">
+                <p>status title</p>
+            </div>
+        </div>
+    </div>
+    <div class="sidecolumn"></div>
+    <!-- <div class="valuearea">
+        <div class="valuebar">
+            <div class="barlabel">
+                <img src="imple.png">
+            </div>
+        </div>
+    </div> -->
+
+    <script>
+        startGame();
+    </script>
+</body>

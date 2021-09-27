@@ -38,14 +38,12 @@ let me know how it goes, will ya?
  > will do | walkstart
 ---
 yesalt
-+apprehension
 thats the spirit.
 
 let me know how it goes, will ya?
  > will do | walkstart
 ---
 yesalt2
-+apprehension
 me too, me too.
 
 well let me know how the new one goes, will ya?
@@ -103,12 +101,87 @@ likely story.
 
 order a sandwich.
  > ok? | convinced
+ > [leave store] | leftstore
+---
+leftstore | self
+You turn and run for the door, exiting the shop.
+
+The street outside is empty. you don't look back inside.
+ > i should text Kel | textkel
+---
+textkel
+what to write?
+ > "kel i think i'm having a mental breakdown. i went into the store and couldnt even bring myself to order a sandwich, one moment i think i want a sandwich and the next i dont even know. something wasn't right in there" | breakdownwait
+ > "heyy" | kelheyy
+---
+kelheyy | Kel
+hey! how was the sandwich place?
+ > well see thats the thing | heyy21
+---
+heyy21
+the thing?
+ > i haven't quite tried it out you see | notquite
+---
+notquite
+oh?
+>| notquite2
+---
+notquite2
+why not?
+ > i ran out of the sandwich shop after being asked if i wanted a sandwich. | breakdown
+---
+heyy22
+oh. 
+---
+readytoenter | self
+a wave of calmn passes over you. you are filled with a renewed sense of purpose and appreciation for bread-enclosed lunch foods.
+
+it's time.
++new resolve
+ > re-enter the sandwich shop | reentering
+---
+reentering | Employee
+well would you look who decided to enter our little sandwich establishment...
+
+"welcome to the press" as they say.
+ > i'd like a sandwich. | returnwich
+---
+breakdownwait
+hopefully kel is online
+>| breakdown
+---
+breakdown | Kel
+oh.
+>| breakdown2
+---
+breakdown2
+listen. the process isn't always easy, but sometimes you need that sandwich
+>| breakdown3
+---
+breakdown3
+think of those warm, crispy sandwiches we used to get. do it for me.
+
+do it for crispy joe. 
+
+do it for all those sandwich toppings, sitting helplessly in trays until their lives are given meaning by the delicious meal they create.
+>| breakdown4
+---
+breakdown4
+go get a sandwich.
+>| readytoenter
 ---
 convinced | Employee
 +a forced entrance
 so what can i get for you? 
  > what are my options? | breadoptions
  > something tasty, please | tasty
+---
+returnwich
+glad to see you came around.
+
+what can i get for you?
+ > what are my options? | breadoptions
+ > something tasty | tasty
 ---
 troublewich
 funnily enough, I think I can handle that one.
@@ -131,16 +204,25 @@ foundation of any sandwich. well, almost any sandwich. we've got all sorts.
  > some whole grain, i think | grain
  > you guys do those croissant sandwiches? | croissant
 ---
+breadoptionshesitant | Employee
+since you're having some trouble, let's just start with what type of bread you'd like.
+
+nice and simple.
+ > a classic itallian roll | roll
+ > i'm in a bagel sort of mood today | bagel
+ > some whole grain, i think | grain
+ > you guys do those croissant sandwiches? | croissant
+---
 tasty
 are you ordering me a sandwich?
 
 because if not you'll need to decide what that means yourself
- > darn | breadoptions
+ > darn | breadoptionshesitant
  > can't you pick for me? | pickforme
 ---
 pickforme
 no.
->| breadoptions
+>| breadoptionshesitant
 ---
 listen
 listen how about i take you around to the back, talk to elbert.
@@ -183,7 +265,8 @@ you're looking for a roll, but you don't seem to know what kind you want. do you
 ---
 dinnerroll
 glad to see you managed to decide
->| part2
++set:breadtype=dinnerroll
+>| breadreroll
 ---
 yesroll
 well tell me about this italian roll you're looking for then
@@ -212,7 +295,8 @@ sure, but don’t you think you’ll experience the flavors of the bread roll di
 ---
 nodinner
 alright fine I’ll put you down for the italian sandwich roll instead then.
- > great, thanks | part2
++set:breadtype=italiansandwich
+ > great, thanks | breadreroll
  > wait. if you had that as an option, why not just give me one from the start? | whynoroll
 ---
 whynoroll
@@ -227,7 +311,8 @@ somethingelse
 i would never impose on someone's sandwich choices like that.
 
 if you want the roll, you get the roll
->| part2
++set:breadtype=italiansandwich
+>| breadreroll
 ---
 breadaura
 are you making fun of bread baking?
@@ -239,17 +324,18 @@ nopls
 i sure hope not.
 
 the only thing you're getting today is a dinner roll.
->| part2
++set:breadtype=dinnerroll
+>| breadreroll
 ---
 breadbiome
 oh we've got a bread scientist on our hands do we.
 
-I'm afraid Giovanni just washed his hands, so might be quite lacking in your tasty italian bacteria.
- > i hope you know that's truly tragic. | nobacteria 
+I'm afraid Giovanni just washed those fine italian fingers of his, so might be quite lacking in your tasty bacteria.
+ > i hope you know that's truly tragic. | nobacteria
 ---
 nobacteria
-well are there any bread options not reliant on italian microbiomes that we can get you?
- > I think italian bread is fluffier? | fluffier
+well are there any bread options not so reliant on italian microbiomes that we can get you?
+ > I want some of that italian fluffiness | fluffier
  > it’s the crispy Italian exterior im looking for | crispy
 ---
 crispy
@@ -274,13 +360,15 @@ animalcrackers2
 you know? just for you, we'll make an animal cracker bread roll.
 
 i'll tell Giovanni to make it italy-shaped.
->| part2
++set:breadtype=crackerroll
+>| breadreroll
 ---
 crackersinside
 lets not get ahead of ourselves here. first you need some bread to put those animal-y treats into.
 
 how about i put you down for the italian sandwich roll?
- > great, thanks | part2
++set:breadtype=italiansandwich
+ > great, thanks | breadreroll
  > wait. if you had that as an option, why not just give me one from the start? | whynoroll
 ---
 fluffier
@@ -299,16 +387,30 @@ you're letting the italians tell you which sandwich rolls you do and don't want?
 ---
 helpyouout
 how about I help you out and put you down for the italian sandwich roll.
- > great, thanks | part2
++set:breadtype=italiansandwich
+ > great, thanks | breadreroll
  > wait. if you had that as an option, why not just give me one from the start? | whynoroll
 ---
 guesso
 well.
 
 a fluffy roll you shall have then.
->| part2
++Part:Fluffy Roll
++set:breadtype=fluffyroll
+>| breadreroll
+---
+breadreroll | self
+[bread]. could work.
+
+is this what i wanted?
+ > yeah. why not? | part2
+ > I was actually looking for something a bit different | breadoptions
 ---
 part2
+well next up, how about some meat? really the meat of the sandwich, you know.
+>| part22
+---
+part22
 to be continoooed
 ---
 wholegrain

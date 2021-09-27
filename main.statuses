@@ -1,15 +1,19 @@
 ---
 apprehension
-not exactly your first choice of eatery
+not exactly your first choice of eatery. [-1 Sanity]
 ---
 crispy joe 
 where did he go?
 ---
 eager
-you're looking forward to this.
+you're looking forward to this. [+1 Sanity]
 ---
 inside
 you're in a sandwich shop
 ---
 a forced entrance
 not quite a clean break.
+[-1 Sanity]
+---
+new resolve
+Talking to Kel has given you [+1 Sanity]

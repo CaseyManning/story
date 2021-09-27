@@ -23,7 +23,13 @@ function loadStory(filename, finished) {
             } else if(line.startsWith(">|")) {
                 currentMoment.setNext(line.substr(3));
             } else if(line.startsWith("+")) {
-                currentMoment.addStatus(line.substr(1));
+                if(line.startsWith("+Part:")) {
+                    currentMoment.addPart(line.substr(6));
+                } else if(line.startsWith("+set:")) {
+                    currentMoment.setVariable({"name" : line.substring(5, line.indexOf('=')), "value" : line.substr(line.indexOf('=')+1)});
+                } else {
+                    currentMoment.addStatus(line.substr(1));
+                }
             } else if(line.startsWith("-")) {
                 currentMoment.addRemoveStatus(line.substr(1));
             } else {
