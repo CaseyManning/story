@@ -30,7 +30,7 @@ function eraseCookie(name) {
 
 function startGame() {
     if(getCookie("played")) {
-        // startScene = "greeter1"
+        startScene = "greeter1"
     }
     loadStatuses("main.statuses", () => {
         loadStory("main.story", () => {
@@ -172,6 +172,7 @@ class Moment {
 
         if(this.person == "self" || this.person == "inherit" && document.getElementById('textbox').classList.contains('thought')) {
             document.getElementById("personinfo").classList.add("invis");
+            document.getElementById("playerinfo").classList.add("invis");
             // document.getElementById("playerinfo").classList.remove("invis");
             document.getElementById('textbox').classList.add('thought')
             document.getElementById('speechmark').classList.add('hidden');
@@ -190,6 +191,7 @@ class Moment {
             document.getElementById("personname").innerHTML = people[this.person].name;
             document.getElementById("personimg").src = people[this.person].image;
             document.getElementById("personinfo").classList.remove("invis");
+            document.getElementById("playerinfo").classList.remove("invis");
         }
         
 
@@ -301,7 +303,7 @@ function writeText(element, text, finished) {
             var delay = 12;
             if(text[0] === '\n') {
                 if(text[1] === '\n') {
-                    delay = 550;
+                    delay = 800;
                 }
             }
             element.innerHTML += text[0];

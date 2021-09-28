@@ -6,14 +6,17 @@
     <script src="index.js"></script>
 </head>
 <body>
+    <div class="sidecolumn" style="align-items:flex-end; margin-bottom: 297px;">
+        <div id="personinfo" class="invis" style="margin-bottom: -25px; transition: 1s;">
+            <div class="picture box">
+                <img id="personimg" src="dots1.png">
+            </div>
+            <p id="personname">welll</p>
+        </div>
+    </div>
     <div class="column">
         <div class="top">
-            <div id="personinfo" class="invis" style="margin-bottom: -25px; transition: 1s;">
-                <div class="picture box">
-                    <img id="personimg" src="dots1.png">
-                </div>
-                <p id="personname">welll</p>
-            </div>
+
             <div id="textbox" class="maintext box">
                 <p>An Error Occured</p>
                 <div id="speechmark" class="arrow"></div>
@@ -29,12 +32,6 @@
                     <div class="optionarrow"></div>
                 </div>
             </div>
-            <!-- <div id="playerinfo" class="invis">
-                <div class="picture box">
-                    <img src="dots2.png">
-                </div>
-                <p id="personname">it u</p>
-            </div> -->
         </div>
         <div id="statusrow">
             <div class="box status hidden" id="basestatus">
@@ -48,9 +45,16 @@
         <div class="progress" style="display: none;">
             <div class="progress-value" id="sanitybar"></div>
         </div>
-        
     </div>
-    <!-- <div class="sidecolumn"></div> -->
+    <div class="sidecolumn" style="margin-top: 25px">
+        <div id="playerinfo" class="invis">
+            <div class="picture box">
+                <img src="dots2.png">
+            </div>
+            <p id="personname"> </p>
+        </div>
+    </div>
+    
     <!-- <div class="valuearea">
         <div class="valuebar">
             <div class="barlabel">

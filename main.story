@@ -106,7 +106,7 @@ order a sandwich.
 leftstore | self
 You turn and run for the door, exiting the shop.
 
-The street outside is empty. you don't look back inside.
+The street is empty. you don't look back in.
  > i should text Kel | textkel
 ---
 textkel
@@ -148,6 +148,10 @@ well would you look who decided to enter our little sandwich establishment...
 ---
 breakdownwait
 hopefully kel is online
+>| breakdownwait2
+---
+breakdownwait2
+• • •
 >| breakdown
 ---
 breakdown | Kel
@@ -155,15 +159,15 @@ oh.
 >| breakdown2
 ---
 breakdown2
-listen. the process isn't always easy, but sometimes you need that sandwich
+listen. the process isn't always easy, but sometimes you just need that sandwich.
 >| breakdown3
 ---
 breakdown3
-think of those warm, crispy sandwiches we used to get. do it for me.
+think of those warm, crispy sandwiches we used to get.
 
-do it for crispy joe. 
+do it for me. do it for crispy joe. 
 
-do it for all those sandwich toppings, sitting helplessly in trays until their lives are given meaning by the delicious meal they create.
+do it for all those sandwich toppings, sitting helplessly in trays until their lives are given meaning by the delicious, bready meal they create.
 >| breakdown4
 ---
 breakdown4
@@ -216,7 +220,7 @@ nice and simple.
 tasty
 are you ordering me a sandwich?
 
-because if not you'll need to decide what that means yourself
+because if not you'll need to decide what that means yourself.
  > darn | breadoptionshesitant
  > can't you pick for me? | pickforme
 ---
@@ -306,6 +310,16 @@ bad things happen when you run out of italian rolls, so i gotta keep people away
  > do you want me to order something else then? | somethingelse
  > thats a ridiculous way to operate | ridiculous
  > are you not a sandwich shop? are sandwich rolls not something you should have enough of? | enough
+---
+ridiculous
+you're talking to me about ridiculous?
+
+after ordering an 'italian sandwich roll'? i dont think so.
+ > you got something against italians? | againstitalians
+---
+againstitalians
+of course not.
+ > lets move on, then | part2
 ---
 somethingelse
 i would never impose on someone's sandwich choices like that.
@@ -406,8 +420,8 @@ is this what i wanted?
  > yeah. why not? | part2
  > I was actually looking for something a bit different | breadoptions
 ---
-part2
-well next up, how about some meat? really the meat of the sandwich, you know.
+part2 | Employee
+well how about some meat? really the meat of the sandwich, you know.
 >| part22
 ---
 part22
