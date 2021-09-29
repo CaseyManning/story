@@ -1,13 +1,10 @@
-1 | Me
+1 |  
 well, looks like someone clicked the “about” button, doesn't it.
 >| 2
 ---
 2
-I guess that means you must be wondering what this is all about
->| 3
----
-3
-Well, let me tell you a story.
+In that case, I'd like to tell you a story.
+
 A story about sandwiches.
 >| 4
 ---
@@ -28,7 +25,7 @@ No, this one was home to a particular establishment which the locals fondly refe
 >| 7
 ---
 7
-It was around midday, and my hardworking compatriots and I decided it was the perfect occasion to venture down the road to this distributor of freshly toasted subs.
+It was around midday, and my hardworking compatriots and I decided it was the perfect occasion to venture down the road to the aforementioned food distributor.
 >| 8
 ---
 8
@@ -41,6 +38,10 @@ But you see, there was just one slight issue.
 ---
 10
 I couldn’t understand a single word either one of the Quiznos employees said.
+>| 10a
+---
+10a
+Not a single word.
 >| 11
 ---
 11
@@ -67,3 +68,11 @@ To this day I do not know what possibilities I may have missed, for I simply sho
 ---
 15
 I have been living in constant fear of sandwiches ever since that day, and I may never recover.
+>| 16
+---
+16
+...
+ > sandwich. | end
+---
+end
+end

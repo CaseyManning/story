@@ -244,6 +244,16 @@ function textboxclicked() {
 
 var people = {};
 
+function Onend() {
+    document.getElementById("titlescreen").style.display = "block";
+    setTimeout(() => {
+        document.getElementById("titleimg").style.opacity = 1;
+    }, 5);
+    setTimeout(() => {
+        document.getElementById("titletext").style.opacity = 1;
+    }, 1500);
+}
+
 class Person {
     constructor(name, image) {
         this.name = name;
@@ -251,7 +261,7 @@ class Person {
         people[name] = this;
     }
 }
-new Person("Me", "icon1.png")
+new Person(" ", "icon1.png")
 new Person("Sand Express", "dots2.png")
 new Person("Signboard", "dots2.png")
 new Person("Employee", "employeeicon.png")

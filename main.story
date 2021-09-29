@@ -60,7 +60,7 @@ definitely not more than 25.
 >| walk3
 ---
 walk3
-• • •
+...
 >| walkend
 ---
 walkend
@@ -151,7 +151,7 @@ hopefully kel is online
 >| breakdownwait2
 ---
 breakdownwait2
-• • •
+...
 >| breakdown
 ---
 breakdown | Kel
