@@ -30,7 +30,7 @@ function eraseCookie(name) {
 
 function startGame() {
     if(getCookie("played")) {
-        // startScene = "greeter1"
+        startScene = "greeter1"
     }
     loadStatuses("main.statuses", () => {
         loadStory("main.story", () => {
