@@ -16,7 +16,7 @@ i hope its still got bread.
 some people take innovation go a little too far, sandwich-wise.
 
  > couln't hurt to give it a try | eager
- > i'd never abandon Top Joe's toasty subs | notry
+ > i'd never abandon Joe's Toasty Subs | notry
 ---
 notry
 I admire the patriotism, but I think they're still shut. nobody's seen Joe all week either.

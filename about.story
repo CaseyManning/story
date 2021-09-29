@@ -29,7 +29,7 @@ It was around midday, and my hardworking compatriots and I decided it was the pe
 >| 8
 ---
 8
-Now I’ve always been fond of sandwiches, and was prepared for a mildly enjoyable, if perhaps slightly unexciting, culinary experience.
+Now I’ve always been fond of sandwiches, and was prepared for a mildly enjoyable if perhaps slightly unexciting meal.
 >| 9
 ---
 9
