@@ -28,15 +28,44 @@ function eraseCookie(name) {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
+function hideTitle() {
+    document.getElementById("titlescreen").parentNode.removeChild(document.getElementById("titlescreen"))
+}
+
 function startGame() {
     if(getCookie("played")) {
-        startScene = "greeter1"
-    }
-    loadStatuses("main.statuses", () => {
-        loadStory("main.story", () => {
-            moments[startScene].showMoment();
+        startScene = "greeter1";
+        hideTitle();
+
+        loadStatuses("main.statuses", () => {
+            loadStory("main.story", () => {
+                moments[startScene].showMoment();
+            });
         });
-    });
+    } else {
+        // document.getElementById("titleimg").style.opacity = 1;
+        setTimeout(() => {
+            document.getElementById("titleimg").style.opacity = 1;
+        }, 5);
+        setTimeout(() => {
+            document.getElementById("titletext").style.opacity = 1;
+        }, 1500);
+        setTimeout(() => {
+            document.getElementById("titletext").style.transition = "1s"; 
+            document.getElementById("titleimg").style.transition = "1s";
+            document.getElementById("titletext").style.opacity = 0;
+            document.getElementById("titleimg").style.opacity = 0;
+            setTimeout(() => {
+                hideTitle();
+                loadStatuses("main.statuses", () => {
+                    loadStory("main.story", () => {
+                        moments[startScene].showMoment();
+                    });
+                });
+            }, 2000);
+        }, 5000);
+    }
+    
 }
 
 function Onwalkend() {
@@ -172,7 +201,7 @@ class Moment {
 
         if(this.person == "self" || this.person == "inherit" && document.getElementById('textbox').classList.contains('thought')) {
             document.getElementById("personinfo").classList.add("invis");
-            document.getElementById("playerinfo").classList.add("invis");
+            // document.getElementById("playerinfo").classList.add("invis");
             // document.getElementById("playerinfo").classList.remove("invis");
             document.getElementById('textbox').classList.add('thought')
             document.getElementById('speechmark').classList.add('hidden');
