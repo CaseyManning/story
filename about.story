@@ -1,9 +1,9 @@
 1 |  
-well, looks like someone clicked the “about” button, doesn't it.
+oh, hi.
 >| 2
 ---
 2
-In that case, I'd like to tell you a story.
+I'd like to tell you a story.
 
 A story about sandwiches.
 >| 4

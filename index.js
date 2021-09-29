@@ -33,6 +33,9 @@ function hideTitle() {
 }
 
 function startGame() {
+    if(getCookie("finished")) {
+        document.getElementById("abouttext").classList.remove("hidden");
+    }
     if(getCookie("played")) {
         startScene = "greeter1";
         hideTitle();
@@ -70,6 +73,11 @@ function startGame() {
 
 function Onwalkend() {
     setCookie("played", "yeah");
+}
+
+function Onpart22() {
+    setCookie("finished", "yeah");
+    document.getElementById("abouttext").classList.remove("hidden");
 }
 
 class Status {

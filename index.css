@@ -410,3 +410,15 @@ body {
     font-weight: 600;
     color: red;
 }
+
+#abouttext {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    color: #888;
+}
+
+#abouttext:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
