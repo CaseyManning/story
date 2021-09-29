@@ -30,7 +30,7 @@ function eraseCookie(name) {
 
 function startGame() {
     if(getCookie("played")) {
-        startScene = "greeter1"
+        // startScene = "greeter1"
     }
     loadStatuses("main.statuses", () => {
         loadStory("main.story", () => {
@@ -279,10 +279,10 @@ class Person {
         people[name] = this;
     }
 }
-new Person("Kel", "dots1.png")
+new Person("Kel", "icon1.png")
 new Person("Sand Express", "dots2.png")
 new Person("Signboard", "dots2.png")
-new Person("Employee", "dots1.png")
+new Person("Employee", "employeeicon.png")
 
 function writeText(element, text, finished) {
 

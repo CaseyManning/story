@@ -29,10 +29,12 @@
 } */
 .picture {
     width: 150px;
+    border-color: #333 !important;
     height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 #personname {
     width: 170px;
@@ -97,7 +99,7 @@ html {
 .box {
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px;
-    border: 2px solid #ddd;
+    border: 3px solid #555;
     border-radius: 12px;
     margin: 10px;
 }
@@ -109,7 +111,7 @@ html {
     cursor: pointer;
 }
 .clickable:hover {
-    border: 2px solid #333;
+    border: 3px solid #aaa;
 }
 
 .invis {
@@ -132,7 +134,7 @@ html {
 
 p {
     margin: 0px;
-    font-family: 'Quicksand';
+    font-family: monospace, 'Quicksand';
     font-size: 14pt;
     white-space: pre-line !important;
     user-select: none;
@@ -149,7 +151,7 @@ p {
     animation: popin 1s ease forwards;
 }
 .dialogoption:hover {
-    border: 2px solid #333;
+    border: 3px solid #aaa;
 }
 
 #playerinfo {
@@ -157,7 +159,7 @@ p {
 }
 
 .thought {
-    border: 2px solid rgb(142, 182, 227);
+    border: 3px solid rgb(142, 182, 227);
 }
 
 body {
@@ -171,9 +173,10 @@ body {
 }
 
 .picture img {
-    filter: invert(1) brightness(0.8);
-    width: 60%;
-    height: 60%;
+    /* filter: invert(1); */
+    image-rendering: crisp-edges;
+    width: 100%;
+    height: 100%;
 }
 
 @keyframes popin {
@@ -191,7 +194,7 @@ body {
     border-left: inherit;
     border-bottom: inherit;
     border-radius: 2px;
-    bottom: -2px; left: -8px;
+    bottom: -3px; left: -9px;
     width: 22px;
     transform: skewX(-30deg);
     background-color: inherit;
@@ -202,7 +205,7 @@ body {
     border-right: inherit;
     border-bottom: inherit;
     border-radius: 2px;
-    bottom: -2px; right: -8px;
+    bottom: -3px; right: -9px;
     width: 22px;
     transform: skewX(30deg);
     background-color: inherit;
