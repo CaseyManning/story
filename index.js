@@ -485,7 +485,8 @@ var breadNames = {
     "fluffyroll" : "a fluffy roll",
     "italiansandwich" : "an italian sandwich roll",
     "crackerroll" : "an animal cracker roll",
-    "dinnerroll" : "a dinner roll"
+    "dinnerroll" : "a dinner roll",
+    "bagel" : "a bagel"
 }
 
 function Onbreadreroll() {
