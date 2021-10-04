@@ -25,7 +25,7 @@ No, this one was home to a particular establishment which the locals fondly refe
 >| 7
 ---
 7
-It was around midday, and my hardworking compatriots and I decided it was the perfect occasion to venture down the road to the aforementioned food distributor.
+It was around midday, and my hardworking compatriots and I decided it was the perfect occasion to venture down the road to the aforementioned shop.
 >| 8
 ---
 8

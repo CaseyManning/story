@@ -320,6 +320,7 @@ new Person("Kel", "icon1.png")
 new Person("Sand Express", "dots2.png")
 new Person("Signboard", "dots2.png")
 new Person("Employee", "employeeicon.png")
+new Person("Giovanni", "employeeicon.png")
 
 function writeText(element, text, finished) {
 

@@ -159,7 +159,7 @@ oh.
 >| breakdown2
 ---
 breakdown2
-listen. the process isn't always easy, but sometimes you just need that sandwich.
+listen. the process isn't always easy, but sometimes you need a sandwich.
 >| breakdown3
 ---
 breakdown3
@@ -188,7 +188,7 @@ what can i get for you?
  > something tasty | tasty
 ---
 troublewich
-funnily enough, I think I can handle that one.
+no trouble at all.
 
 what can I get for you?
  > what are my options? | breadoptions
@@ -204,7 +204,7 @@ let start with the bread.
 
 foundation of any sandwich. well, almost any sandwich. we've got all sorts.
  > a classic itallian roll | roll
- > i'm in a bagel sort of mood today | bagel
+ > i'm in a bagel sort of mood today | bagel2
  > some whole grain, i think | grain
  > you guys do those croissant sandwiches? | croissant
 ---
@@ -213,11 +213,15 @@ since you're having some trouble, let's just start with what type of bread you'd
 
 nice and simple.
  > a classic itallian roll | roll
- > i'm in a bagel sort of mood today | bagel
+ > i'm in a bagel sort of mood today | bagel2
  > some whole grain, i think | grain
  > you guys do those croissant sandwiches? | croissant
 ---
 tasty
+something tasty...
+>| tasty2
+---
+tasty2
 are you ordering me a sandwich?
 
 because if not you'll need to decide what that means yourself.
@@ -245,7 +249,7 @@ rollgiovanni
 yeah? so tell me, why is the roll Giovanni makes any better then my roll?
  > I’m sorry I didn’t mean it, you can make Italian bread too | breadsorry
  > I think it’s just something in his style. He’s got that bready aura to him | breadaura
- > it's the skin microbiome of the bread kneaders hands, it actually has a big impact. Italian hand bacteria has unique properties | breadbiome
+ > it's the skin microbiome of the bread kneaders hands, Italian hand bacteria has unique properties | breadbiome
 ---
 rollstyle
 is this an animal crackers type of deal? do you need a fun, italy-shaped roll to eat?
@@ -273,9 +277,13 @@ glad to see you managed to decide
 >| breadreroll
 ---
 yesroll
-well tell me about this italian roll you're looking for then
- > I think italian bread is fluffier? | fluffier
- > it’s the crispy Italian exterior im looking for | crispy
+well tell me about this italian roll you're looking for then.
+ > italian bread is fluffier | fluffier
+ > you're supposed to be telling me about the italian rolls, not the other way around. you work here, don't you? | workhere
+---
+workhere
+fine, fine, i do work here.
+>| helpyouout
 ---
 lunchroll
 well I don’t think we have any lunch rolls, but I can check around the back if you’d like 
@@ -295,7 +303,14 @@ and since it is indeed lunchtime, the back was just full of lunch rolls
 intrinsic
 sure, but don’t you think you’ll experience the flavors of the bread roll differently when you’re approaching it with a lunch-like mindset?
  > no, not really | nodinner
- > you could be right. one time-dependent mealtime roll it is then
+ > you could be right | yesdinner
+---
+yesdinner
+i'm glad we agree.
+
+i'm sure your dinner roll will be quite delicious
++set:breadtype=dinnerroll
+>| breadreroll
 ---
 nodinner
 alright fine I’ll put you down for the italian sandwich roll instead then.
@@ -319,7 +334,7 @@ after ordering an 'italian sandwich roll'? i dont think so.
 ---
 againstitalians
 of course not.
- > lets move on, then | part2
+>| part2
 ---
 somethingelse
 i would never impose on someone's sandwich choices like that.
@@ -345,7 +360,8 @@ breadbiome
 oh we've got a bread scientist on our hands do we.
 
 I'm afraid Giovanni just washed those fine italian fingers of his, so might be quite lacking in your tasty bacteria.
- > i hope you know that's truly tragic. | nobacteria
+ > that's quite tragic. | nobacteria
+ > a real italian would never wash his hands. | nowash
 ---
 nobacteria
 well are there any bread options not so reliant on italian microbiomes that we can get you?
@@ -363,7 +379,7 @@ not really, no
 breadsorry
 well you say i can make italian bread, but we still haven't gotten around to clarifying what that bread looks like, now have we?
  > I think italian bread is fluffier? | fluffier
- > it’s about the crispy Italian exterior | crispy
+ > if you don't know what makes it italian, the i guess you can't make italian bread after all, can you? | breadaura
 ---
 animalcrackers
 im glad we could establish your fondness for animal-shaped snacks, but i'm struggling to see how this relates to what bread you want on your sandwich.
@@ -396,7 +412,6 @@ how would you describe this italian feeling, then
 ---
 uptothem
 you're letting the italians tell you which sandwich rolls you do and don't want?
-
  > ridiculous | helpyouout
 ---
 helpyouout
@@ -406,6 +421,88 @@ how about I help you out and put you down for the italian sandwich roll.
  > wait. if you had that as an option, why not just give me one from the start? | whynoroll
 ---
 guesso
+well why did you say you wanted an italian roll if you didn't actually want an italian roll?
+ > well i did want an italian roll, but i'm willing to compromise | fluffycompromise
+---
+fluffycompromise
+as a sandwich shop, you should know that we never compromise on quality.
+ > so what sort of bread does that mean i'm getting? | whatsort
+ > i guess i'll take whichever is higher quality then? | higherquality
+---
+whatsort
+well what sort of bread did you want?
+ > didn't i already say i wanted an italian roll? | italianroll
+ > i'd like a fluffy roll | yesfluffy
+ > a bagel | bagel
+---
+bagel
+hold on.
+
+am i suffering from a bout of short term memory loss, or did you not say just a minute ago that you wanted an italian roll? are you trying to say that bagels are italian?
+ > no, but i'd like one anyways | getbagel
+ > an italian could make a bagel | italianbagel
+---
+italianbagel
+i thought we already established that a bread didn't become italian based on whether or not an italian person made it. let me guess, you need the bagel to be fluffy now too?
+ > that's quite right
+ > no, any bagel will do | anybagel
+---
+anybagel
+so is any bagel italian, or do you simply not care about italy anymore?
+ > all bagels are italian. | allbagels
+ > look, do you have bagels or not? | bagelorno
+---
+bagelorno
+of course we have bagels. do you want a bagel or not?
+ > of course i want a bagel, i asked for one. | getbagel
+---
+allbagels
+every single bagel is an italian bagel?
+ > yes that's right | allbagels2
+---
+allbagels2
+i'm sorry, but we're going ot have to speak to Giovanni about this.
+
+one moment please.
+>| allbagelswait
+---
+allbagelswait | self
+...
+>| allbagelswait2
+---
+allbagelswait2
+......
+>| giovanniarrives
+---
+giovanniarrives | Giovanni
+mama mia.
+---
+getbagel
+then a bagel you shall have
++set:breadtype=bagel
+ > great, thanks | breadreroll
+---
+italianroll
+well i’ll put you down for the italian sandwich roll then.
++set:breadtype=italiansandwich
+ > great, thanks | breadreroll
+ > wait. if you had that as an option, why not just give me one from the start? | whynoroll
+---
+higherquality
+if one of our bread types were to be higher quality than another, would that not be a terrible compromise of quality?
+ > not really | compno
+ > it certainly would be | compyes
+---
+compyes
+exactly. so we must determine not which bread is better, but which one better fits your current state of being.
+ > how do we determine that? | howdetermine
+ > today is feeling like a kind of fluffy day | yesfluffy
+ > i feel like im in a pretty bagel state of being right now | bagel
+---
+compno
+darn
+---
+yesfluffy
 well.
 
 a fluffy roll you shall have then.
@@ -426,7 +523,7 @@ well how about some meat? really the meat of the sandwich, you know.
 ---
 part22
 to be continoooed
- > order another sandwich | greeter1
+ > i'd like some more bread please | greeter1
 ---
 wholegrain
 oh yeah? what sorta grains are you looking for in there
