@@ -24,6 +24,13 @@ function getCookie(name) {
     }
     return null;
 }
+function uuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
 function eraseCookie(name) {   
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
@@ -32,16 +39,74 @@ function hideTitle() {
     document.getElementById("titlescreen").parentNode.removeChild(document.getElementById("titlescreen"))
 }
 
-function sendLoggingData() {
-    console.log("sending data")
+var db;
+var sessionid = uuidv4();
+var breadtype = "none";
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://161.35.228.216:8080/sandwichdata", true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({
-        "ip": "idk",
-        "action" : "start"
-    }));
+function initFirestore() {
+
+    firebase.initializeApp({
+        apiKey: "AIzaSyBYmTkWj9SKKs8R35xaIg-1J1T36nzf9IQ",
+        authDomain: "sand-wich-game.firebaseapp.com",
+        projectId: "sand-wich-game"
+      });
+      
+    
+    db = firebase.firestore();
+}
+
+function logStart() {
+    if(!window.location.href.includes("story")) {
+        console.log("terminating")
+        return;
+    }
+    db.collection("usage").add({
+        action: "start",
+        time: firebase.firestore.FieldValue.serverTimestamp(),
+        id : sessionid
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
+function logEnd() {
+    if(!window.location.href.includes("story")) {
+        console.log("terminating")
+        return;
+    }
+    db.collection("usage").add({
+        action: "end",
+        time: firebase.firestore.FieldValue.serverTimestamp(),
+        breadRecieved : breadtype,
+        id : sessionid
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
+
+function logAbout() {
+    if(!window.location.href.includes("story")) {
+        console.log("terminating")
+        return;
+    }
+    db.collection("usage").add({
+        action: "about",
+        time: firebase.firestore.FieldValue.serverTimestamp(),
+        id : sessionid
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
 }
 
 function startGame() {
@@ -80,7 +145,8 @@ function startGame() {
             }, 2000);
         }, 5000);
     }
-    sendLoggingData();
+    initFirestore();
+    logStart();
 }
 
 function Onwalkend() {
@@ -90,6 +156,7 @@ function Onwalkend() {
 function Onpart22() {
     setCookie("finished", "yeah");
     document.getElementById("abouttext").classList.remove("hidden");
+    logEnd();
 }
 
 class Status {
