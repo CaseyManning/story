@@ -31,22 +31,12 @@ function eraseCookie(name) {
 function hideTitle() {
     document.getElementById("titlescreen").parentNode.removeChild(document.getElementById("titlescreen"))
 }
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
-}
 
 function sendLoggingData() {
     console.log("sending data")
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://161.35.228.216:8080/sandwichdata", true);
+    xhr.open("POST", "https://cors.io/?http://161.35.228.216:8080/sandwichdata", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         "ip": "idk",
