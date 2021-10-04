@@ -74,13 +74,13 @@ function readUsageData() {
             }
         }
 
-        document.getElementById("playslabel").innerHTML = "Total Plays: " + usageData["total-start"] 
+        document.getElementById("loadslabel").innerHTML = "Page Loads: " + usageData["total-start"] 
+        document.getElementById("playthroughslabel").innerHTML = "Full Playthroughs: " + usageData["total-end"] 
         document.getElementById("completionlabel").innerHTML = "Completion Rate: " + Math.round((usageData["total-end"] /usageData["total-start"])*100) + "%";
         document.getElementById("playtimelabel").innerHTML = "Average Playtime: " + Math.round(averageTime / 60) + "m" + Math.round(averageTime % 60) + "s";
         document.getElementById("sandwichlabel").innerHTML = "Most Common Sandwich: " + breadNames[maxBread];
         document.getElementById("aboutlabel").innerHTML = "About Page Visits: " + usageData["total-about"];
     });
-    
 }
 
 initFirestore();
