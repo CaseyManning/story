@@ -36,7 +36,7 @@ function sendLoggingData() {
     console.log("sending data")
 
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://161.35.228.216:8080/sandwichdata", true);
+    xhr.open("POST", "https://161.35.228.216:8080/sandwichdata", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         "ip": "idk",
