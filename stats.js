@@ -37,24 +37,26 @@ function readUsageData() {
             usageData["total-" + data.action] += 1;
 
             if(!sessions[data.id]) {
-                sessions[data.id] = {id : data.id};
+                sessions[data.id] = {id : data.id, orders: 0};
             }
             if(data.action == "start") {
                 sessions[data.id].startTime = data.time;
             }
             if(data.action == "end") {
+                sessions[data.id].orders += 1;
                 sessions[data.id].endTime = data.time;
                 sessions[data.id].breadType = data.breadRecieved;
             }
         });
         var breadCounts = {};
         var averageTime = 0;
+        var averageOrders = 0;
         var validsessions = 0;
         console.log(averageTime)
         for(const s in sessions) {
             if(sessions[s].endTime) { //session finished
-                console.log(averageTime)
                 averageTime += sessions[s].endTime - sessions[s].startTime;
+                averageOrders += sessions[s].orders;
                 validsessions += 1;
 
                 if(!breadCounts[sessions[s].breadType]) {
@@ -64,6 +66,7 @@ function readUsageData() {
             }
         }
         averageTime /= validsessions;
+        averageOrders /= validsessions;
 
         var maxBread = "none";
         var maxCount = 0;
@@ -80,6 +83,7 @@ function readUsageData() {
         document.getElementById("playtimelabel").innerHTML = "Average Playtime: " + Math.round(averageTime / 60) + "m" + Math.round(averageTime % 60) + "s";
         document.getElementById("sandwichlabel").innerHTML = "Most Common Sandwich: " + breadNames[maxBread];
         document.getElementById("aboutlabel").innerHTML = "About Page Visits: " + usageData["total-about"];
+        document.getElementById("sandpersessionlabel").innerHTML = "Sandwiches Per Session: " + averageOrders;
     });
 }
 

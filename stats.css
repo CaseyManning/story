@@ -35,3 +35,11 @@ p {
     font-size: 14pt;
     margin: 10px;
 }
+
+img {
+    filter: invert(1);
+    height: 100px;
+    margin-bottom: 20px;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
