@@ -42,4 +42,5 @@ img {
     margin-bottom: 20px;
     image-rendering: crisp-edges;
     image-rendering: pixelated;
+    user-select: none;
 }

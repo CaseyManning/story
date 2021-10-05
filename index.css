@@ -422,3 +422,15 @@ body {
     text-decoration: underline;
     cursor: pointer;
 }
+
+#statstext {
+    position: absolute;
+    bottom: 20px;
+    right: 105px;
+    color: #888;
+}
+
+#statstext:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

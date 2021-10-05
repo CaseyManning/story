@@ -112,6 +112,7 @@ function logAbout() {
 function startGame() {
     if(getCookie("finished")) {
         document.getElementById("abouttext").classList.remove("hidden");
+        document.getElementById("statstext").classList.remove("hidden");
     }
     if(getCookie("played")) {
         startScene = "greeter1";
@@ -156,6 +157,7 @@ function Onwalkend() {
 function Onpart22() {
     setCookie("finished", "yeah");
     document.getElementById("abouttext").classList.remove("hidden");
+    document.getElementById("statstext").classList.remove("hidden");
     logEnd();
 }
 
