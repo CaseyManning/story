@@ -83,7 +83,7 @@ function readUsageData() {
         document.getElementById("playtimelabel").innerHTML = "Average Playtime: " + Math.round(averageTime / 60) + "m" + Math.round(averageTime % 60) + "s";
         document.getElementById("sandwichlabel").innerHTML = "Most Common Sandwich: " + breadNames[maxBread];
         document.getElementById("aboutlabel").innerHTML = "About Page Visits: " + usageData["total-about"];
-        document.getElementById("sandpersessionlabel").innerHTML = "Sandwiches Per Session: " + averageOrders;
+        document.getElementById("sandpersessionlabel").innerHTML = "Sandwiches Per Session: " + Math.round(averageOrders*100) / 100.0;
     });
 }
 
